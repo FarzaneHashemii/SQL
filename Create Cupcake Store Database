@@ -1,0 +1,31 @@
+---create a database
+
+CREATE TABLE cupcakestore (id INTEGER PRIMARY KEY, name TEXT, price INTEGER, calories INTEGER, on_hand INTEGER, expiry_date TEXT, nuts TEXT);
+
+INSERT INTO cupcakestore VALUES(1,'vanilla cupcake', 1.99, 300, 25, '04/08','no');
+INSERT INTO cupcakestore VALUES(2,'chocolate cupcake', 1.99, 450, 20, '04/06','no');
+INSERT INTO cupcakestore VALUES(3,'strawberry cupcake', 2.29, 380, 22, '04/07','no');
+INSERT INTO cupcakestore VALUES(4,'hazelnut cupcake', 2.49, 430, 19, '04/05','yes');
+INSERT INTO cupcakestore VALUES(5,'redvelvet cupcake', 2.49, 410, 13, '04/04','no');
+INSERT INTO cupcakestore VALUES(6,'caramel cupcake', 2.49, 450, 15, '04/07', 'no');
+INSERT INTO cupcakestore VALUES(7, 'rose pistachio cupcake', 2.99, 320, 10, '04/05', 'yes');
+INSERT INTO cupcakestore VALUES(8,'snickers cupcake', 2.99, 480, 12, '04/07', 'yes');
+INSERT INTO cupcakestore VALUES(9,'cottoncandy cupcake', 2.99, 490, 16, '04/06', 'no');
+INSERT INTO cupcakestore VALUES(10, 'smores cupcake', 2.99, 500, 15, '04/08','no');
+INSERT INTO cupcakestore VALUES(11, 'almond cupcake', 2.99, 350, 13, '04/07', 'yes');
+INSERT INTO cupcakestore VALUES(12, 'reeses cupcake', 2.99, 420, 14, '04/06','yes');
+INSERT INTO cupcakestore VALUES(13, 'vanilla cake', 29.99, 2700, 3, '04/05','no');
+INSERT INTO cupcakestore VALUES(14, 'chocolate cake', 29.99, 3600, 3, '04/06','no');
+INSERT INTO cupcakestore VALUES(15, 'rose pistachio cake', 34.99, 2800, 2, '04/05', 'yes');
+
+---display all products ordered by price
+SELECT * FROM cupcakestore ORDER BY price;
+
+---sum of all products on hand
+SELECT SUM(on_hand) FROM cupcakestore;
+
+---dislay items with no nuts
+SELECT * FROM cupcakestore WHERE nuts == 'no';
+
+---which items are expiring the soonest?
+SELECT * FROM cupcakestore ORDER BY expiry_date LIMIT 5;

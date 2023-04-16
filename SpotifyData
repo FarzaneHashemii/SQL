@@ -44,3 +44,13 @@ ORDER BY duration_ms DESC LIMIT 1;
 SELECT AVG(danceability) FROM BIT_DB.Spotifydata
 WHERE track_name in (SELECT track_name FROM BIT_DB.Spotifydata
 ORDER BY popularity DESC LIMIT 10);
+
+--- What are the artists with an average popularity of 90 or more?
+WITH TempTABLE AS (
+    SELECT artist_name, AVG(popularity) as average_popularity
+    FROM Spotifydata
+    GROUP BY artist_name
+    )
+SELECT artist_name, average_popularity, 'Top Star' AS tag
+FROM TempTABLE
+WHERE average_popularity >= 90
